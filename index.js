@@ -17,3 +17,13 @@ function changeSlide(n) {
   slideIndex += n - 1;
   showSlides();
 }
+
+
+// scripts.js
+function toggleMenu() {
+  document.getElementById("mobileNav").style.width = "250px";
+}
+
+function closeMenu() {
+  document.getElementById("mobileNav").style.width = "0";
+}
