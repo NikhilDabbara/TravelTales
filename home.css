@@ -1,3 +1,7 @@
+body {
+  background-color: #d0d4d5; /* Light blue */
+}
+
 /* Custom styles for the navigation bar */
 .navbar {
   padding: 10px 20px;
@@ -14,9 +18,9 @@
   margin-left: auto; /* Push search bar to the right */
 }
 #log{
-  border: 1px solid white;
-  color: gray;
-  background-color: white;
+  border: none;
+  color: rgb(33, 32, 32);
+  background-color: silver;
   border-radius: 10px;
 }
 
@@ -27,7 +31,10 @@
       width: 100%;
       margin: 10px 0;
   }
-
+  .nav-item{
+    padding-left: 43%;
+    padding-right: 35%;
+  }
   /* Hide the sign-in button in the collapsed menu */
   .navbar-nav .nav-item:last-child {
       display: none;
@@ -37,99 +44,76 @@
   .navbar-toggler {
       display: block;
   }
-
+  #log{
+    background-color: #35393c;
+    color:#FFFFFF8C;
+  }
   /* Adjust the navbar collapse area */
   .navbar-collapse {
       background-color: #343a40; /* Dark background for the menu */
       padding: 10px;
+      border: none;
       border-radius: 5px;
       margin-top: 10px;
   }
 }
 
-
-/*slider
-.slider-container {
-  padding: 1rem;
-  position: relative;
-  overflow: hidden;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+/*slider*/
+.container {
+  padding: 2rem;
 }
+
 .slider-wrapper {
   position: relative;
+  max-width: 80rem;
   margin: 0 auto;
 }
+
 .slider {
   display: flex;
-  aspect-ratio: 16/8;
-  overflow: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  box-shadow: black 1px 0px 3px 0px;
-  border-radius: 20px;
-  width: 100%;
+  aspect-ratio: 16/9;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Snap to each slide */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.5rem;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
-.slide::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, black, transparent);
-  border-radius: 20px;
-  z-index: 1
+
+.slider::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
-.slide {
-  position: relative;
+
+.slider img {
   flex: 1 0 100%;
   scroll-snap-align: start;
-}
-.slide img {
-  width: 100%;
-  height: auto;
   object-fit: cover;
-  border-radius: 20px;
 }
-.text-container {
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  color: white;
-  z-index: 2;
-  width: 30%;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
-.title {
-  font-size: 24px;
-  margin: 0;
-  padding-bottom: 10px;
+
+.slider-nav a {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
 }
-.content {
-  font-size: 16px;
-  margin: 0;
+
+.slider-nav a:hover {
+  opacity: 1;
 }
-.prev, .next {
-  position: absolute;
-  transform: translateY(-50%);
-  background-color:#38b6ff;
-  opacity: 0.9;
-  border-radius: 1rem;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 1rem;
-  z-index: 3;
-}
-.prev {
-  right: 1rem;
-  bottom: 0;
-}
-.next {
-  right: 1rem;
-  bottom: 3.5rem;
-}*/
 
 /*search area*/
       .container {
@@ -174,21 +158,6 @@
           cursor: pointer;
           transition: background-color 0.3s;
       }
-      .buttons .login {
-          background-color: #f3f4f6;
-          color: #1a1a1a;
-      }
-      .buttons .signup {
-          background-color: #1a1a1a;
-          color: #ffffff;
-          margin-left: 10px;
-      }
-      .buttons .login:hover {
-          background-color: #e5e7eb;
-      }
-      .buttons .signup:hover {
-          background-color: #333333;
-      }
       h1 {
           font-size: 36px;
           font-weight: bold;
@@ -220,16 +189,6 @@
       .date-inputs input {
           flex: 1;
       }
-      .invite-button {
-          color: #666666;
-          text-decoration: none;
-          margin-bottom: 20px;
-          display: inline-block;
-          transition: color 0.3s;
-      }
-      .invite-button:hover {
-          color: #1a1a1a;
-      }
       .start-planning {
           background-color: #f3f4f6;
           color: #1a1a1a;
@@ -238,9 +197,15 @@
           border-radius: 8px;
           cursor: pointer;
           transition: background-color 0.3s;
+          margin-left: 45%;
+          margin-right: auto;
+          text-decoration: none;
+          color: inherit;
       }
       .start-planning:hover {
           background-color: #e5e7eb;
+          text-decoration: none;
+          color: inherit;
       }
       .write-guide {
           color: #666666;

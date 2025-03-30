@@ -1,0 +1,113 @@
+/* Map Styles */
+#map {
+    height: 500px; /* Ensure the map has a height */
+    width: 100%;
+    margin-top: 20px;
+    height: 90vh;
+}
+
+/* Search Panel Styles */
+.search-panel {
+    width: 300px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.text-area-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-textarea {
+    width: 100%;
+    max-width: 600px; /* Maximum width to prevent it from getting too wide */
+    height: 150px;
+    padding: 10px;
+    border: 2px solid #38b6ff;
+    border-radius: 10px;
+    resize: vertical; /* Allow users to resize vertically but not horizontally */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Hide search panel in mobile view by default */
+@media (max-width: 768px) {
+    .search-panel {
+        left: -300px;
+    }
+    .custom-textarea {
+        height: 100px; /* Adjust height for smaller screens */
+    }
+    .search-panel.open {
+        left: 0;
+    }
+}
+
+/* Search Toggle Button (Mobile) */
+.search-toggle {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    z-index: 1001;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+.search-toggle i {
+    font-size: 20px;
+}
+
+/* Show search toggle button only in mobile view */
+@media (max-width: 768px) {
+    .search-toggle {
+        display: block; /* Visible on mobile */
+    }
+}
+
+/* Adjust navbar and map for mobile view */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    #map {
+        margin-top: 60px; /* Add space for the navbar */
+    }
+}
+
+/* Custom Marker Styles */
+.custom-marker {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid white;
+}
+
+/* Active link style */
+.nav-link.active {
+    color: #007bff !important;
+    font-weight: bold;
+}

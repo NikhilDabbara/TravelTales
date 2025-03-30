@@ -27,3 +27,5 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById("mobileNav").style.width = "0";
 }
+
+
