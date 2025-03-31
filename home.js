@@ -13,3 +13,32 @@ document.getElementById('search--btn').addEventListener('click', function(event)
     }
 });
 
+document.getElementById("search--btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Critical: Stops the link from jumping to "#"
+
+    const age = prompt("Please enter your age:");
+    
+    // If user clicks "Cancel" or enters nothing
+    if (age === null || age.trim() === "") {
+      alert("Age is required to proceed.");
+      return; // Exit the function
+    }
+
+    const ageNumber = parseInt(age);
+    
+    // If input is not a number
+    if (isNaN(ageNumber)) {
+      alert("Please enter a valid age (e.g., 25).");
+      return;
+    }
+
+    // Store age (optional)
+    localStorage.setItem("userAge", ageNumber);
+
+    // Redirect logic
+    if (ageNumber < 28) {
+      window.location.href = "index_2.html"; // Under 28
+    } else {
+      window.location.href = "index_1.html"; // 28 or older
+    }
+  });
