@@ -13,6 +13,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles_1.css">
     <link rel="icon" href="./logos/logo_main.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -25,13 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="hotels-link">Restaurants</a>
+                        <a class="nav-link" href="#" id="hotels-link">Hotels</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="hospitals-link">Hospitals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="lodges-link">Hotels</a>
                     </li>
                 </ul>
             </div>
@@ -58,16 +56,14 @@
         <i class="fas fa-search"></i>
     </button>
     </div>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1uvN069F1R5ldv5mk8JuR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
     <!-- Leaflet and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="script_1.js"></script>
-
-    <script>
-        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1uvN069F1R5ldv5mk8JuR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-        </script>
-        
 </body>
 </html>

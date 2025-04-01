@@ -33,45 +33,33 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#footer">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#footer">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#footer">Contact</a>
                     </li>
                 </ul>
 
-                <!-- Sign-in button -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" id="log" href="#">Log In</a>
-                    </li>
-		    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign In</a>
-                    </li>
-                </ul>
             </div>
 
         </div>
     </nav>
-
+<br>
     <!-- Chat Bot -->
     <script>
         (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1uvN069F1R5ldv5mk8JuR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
         </script>
 
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <section class="container">
         <div class="slider-wrapper">
             <div class="slider">
-                <img id="slide-1" src="./image/India_2.png" alt="1st image">
-                <img id="slide-2" src="./image/paris_1.png" alt="2nd image">
-                <img id="slide-3" src="./image/Egypt_2.png" alt="3rd image">
+                <img id="slide-1" src="./image/paris_1.jpg" alt="1st image">
+                <img id="slide-2" src="./image/India_1.png" alt="2nd image">
+                <img id="slide-3" src="./image/Egypt_2.j" alt="3rd image">
             </div>
             <div class="slider-nav">
                 <a href="#slide-1"></a>
@@ -79,7 +67,7 @@
                 <a href="#slide-3"></a>
             </div>
         </div>
-    </section><br><br><br>
+    </section><br>
 
 
 
@@ -88,7 +76,7 @@
         <h1>Plan a New Trip</h1>
         <div>
             <label for="destination">Where to?</label>
-            <input type="text" id="destination" placeholder="e.g. Paris, Hawaii, Japan">
+            <input type="text" id="destination" placeholder="e.g. Paris, Hawaii, Japan" required>
         </div>
         <div>
             <label>Dates (optional)</label>
@@ -100,6 +88,51 @@
         <a href="index_1.html" id="search--btn" class="start-planning">Start Planning</a>
     </div><br><br>
 
+    <script>
+        document.getElementById('search--btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default behavior
+
+            // Get the value of the destination input
+            let destination = document.getElementById('destination').value.trim();
+
+            if (destination === "") {
+                // If the destination input is empty, prompt the user
+                alert("Please enter your destination");
+                return; // Stop execution and do not proceed further
+            }
+
+            // If destination is valid, prompt for age
+            let age;
+            while (true) {
+                age = prompt("Please enter your age:");
+                
+                if (age === null) {
+                    // If the user cancels the prompt
+                    alert("Please enter your age to proceed");
+                } else if (age.trim() === "" || isNaN(age)) {
+                    // If the input is invalid
+                    alert("Invalid input. Please enter a valid number.");
+                } else {
+                    // Valid age input
+                    age = parseInt(age);
+                    break; // Exit the loop
+                }
+            }
+
+            // Set href based on age
+            let anchor = document.getElementById('search--btn');
+            if (age < 26) {
+                anchor.href = "./index_2.html";
+            } else {
+                anchor.href = "./index_1.html";
+            }
+
+            // Optionally redirect the user to the new link
+            window.location.href = anchor.href;
+        });
+    </script>
+
+
 
 
 
@@ -107,7 +140,7 @@
 
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="footer-content">
       <div class="footer-section about">
         <h2>TravelTales</h2>

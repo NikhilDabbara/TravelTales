@@ -132,12 +132,6 @@
     .custom-textarea {
         height: 100px;
     }
-    .nav-link{
-        margin-left:15%;
-        padding-left:5%;
-        margin-right:45%;
-
-    }
 }
 
 .search-toggle {
@@ -216,9 +210,4 @@
 
 .search-panel::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
-}
-
-.bxs-hotel{
-    font-size: 24px;
-    color: rgb(45, 68, 219);
 }

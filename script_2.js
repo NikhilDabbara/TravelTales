@@ -8,6 +8,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+let markers = [];
+let poiMarkers = [];
+let lastSearchTime = 0;
+
 navigator.geolocation.getCurrentPosition(success);
 
 function success(pos){
@@ -17,11 +21,6 @@ function success(pos){
 
     L.marker([lat,lng]).addTo(map);
 }
-
-
-let markers = [];
-let poiMarkers = [];
-let lastSearchTime = 0;
 
 // Custom marker icon
 const customIcon = L.icon({
@@ -43,7 +42,7 @@ const icons = {
     }),
     hostel: L.divIcon({
         className: 'custom-marker',
-        html: `<div style="font-size: 30px;"><i class='bx bxs-hotel' ></i></div>`
+        html: `<div style="font-size: 30px;">🛏️</div>`
     })
 };
 
@@ -191,9 +190,8 @@ async function fetchPOIs(lat, lon) {
             const poiLat = element.lat;
             const poiLon = element.lon;
             const poiType = element.tags.tourism || element.tags.amenity;
-            const poiName = element.tags.name || `Unnamed ${poiType}`; // Get the name or use default
-            
             let icon;
+
             switch (poiType) {
                 case 'hotel': icon = icons.hotel; break;
                 case 'hospital': icon = icons.hospital; break;
@@ -201,24 +199,8 @@ async function fetchPOIs(lat, lon) {
                 default: icon = icons.hotel;
             }
 
-            const marker = L.marker([poiLat, poiLon], { 
-                icon,
-                title: poiName // This will show on hover
-            }).addTo(map);
-            
-            // Create popup with the actual name
-            marker.bindPopup(`<b>${poiName}</b><br><small>${poiType.charAt(0).toUpperCase() + poiType.slice(1)}</small>`);
-            
-            // Open popup on hover
-            marker.on('mouseover', function() {
-                this.openPopup();
-            });
-            
-            // Close popup when mouse leaves
-            marker.on('mouseout', function() {
-                this.closePopup();
-            });
-
+            const marker = L.marker([poiLat, poiLon], { icon }).addTo(map);
+            marker.bindPopup(`<b>${poiType}</b>`);
             poiMarkers.push({ marker, type: poiType });
             map.removeLayer(marker);
         });

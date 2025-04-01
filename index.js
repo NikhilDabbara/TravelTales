@@ -1,4 +1,8 @@
 // scripts.js
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
+}
+// scripts.js
 let slideIndex = 0;
 showSlides();
 
@@ -27,5 +31,7 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById("mobileNav").style.width = "0";
 }
+
+
 
 
